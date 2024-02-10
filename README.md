@@ -36,6 +36,7 @@ require("lazy").setup({
             chefOccurence.setup()
             vim.keymap.set("n", "<leader><C-n>", chefOccurence.next)
             vim.keymap.set("n", "<leader><C-p>", chefOccurence.prev)
+            vim.o.updatetime = 500 -- Add this line to show highlighting faster
         end,
     }
 })
