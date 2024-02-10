@@ -1,7 +1,7 @@
-local ChefLspOccurence = {}
+local ChefLspOccurrence = {}
 
--- Go to the next occurence of the highlighted identifier
-function ChefLspOccurence.next()
+-- Go to the next occurrence of the highlighted identifier
+function ChefLspOccurrence.next()
 	local highlights = vim.api.nvim_buf_get_extmarks(0, -1, 0, -1, {details = true})
 	local foundNext = false
 	for i,v in ipairs(highlights) do
@@ -20,8 +20,8 @@ function ChefLspOccurence.next()
 	end
 end
 
--- Go to the previous occurence of the highlighted identifier
-function ChefLspOccurence.prev()
+-- Go to the previous occurrence of the highlighted identifier
+function ChefLspOccurrence.prev()
 	local highlights = vim.api.nvim_buf_get_extmarks(0, -1, 0, -1, {details = true})
 	local foundPrev = false
 	for i=#highlights,1,-1 do
@@ -40,8 +40,8 @@ function ChefLspOccurence.prev()
 	end
 end
 
-function ChefLspOccurence.setup()
-	local chefLspGroup = vim.api.nvim_create_augroup('ChefLspOccurence', { clear = true })
+function ChefLspOccurrence.setup()
+	local chefLspGroup = vim.api.nvim_create_augroup('ChefLspOccurrence', { clear = true })
 	vim.api.nvim_create_autocmd('LspAttach', {
 		group = chefLspGroup,
 		callback = function(ev)
@@ -70,4 +70,4 @@ function ChefLspOccurence.setup()
 	})
 end
 
-return ChefLspOccurence
+return ChefLspOccurrence
