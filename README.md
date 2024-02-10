@@ -7,7 +7,7 @@
 ## Why
 <p>Using vim's `*` / `#` actions for finding the next/prev occurence of an identifier in the current code file is just not accurate.
   It will find unwanted matches such as an identically named local variable in a different function, or maybe somthing like this thing: `myVar = "myVar"`.
-  A better approach is to go the next occurence of the identifier under the cursor, with the code-wise definition of identifier (scope and all).</p>p>
+  A better approach is to go the next occurence of the identifier under the cursor, with the code-wise definition of identifier (scope and all).</p>
 <p>Fortunately, Neovim implements LSP (language server protocol) and supports document highlighting. The missing link is automatically calling document
   highlighting for the identifier under cursor, and then allowing going to next/prev LSP highlight.</p>
 
