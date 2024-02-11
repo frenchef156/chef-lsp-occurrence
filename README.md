@@ -10,7 +10,7 @@ It will find unwanted matches such as an identically named local variable in a d
 A better approach is to go the next occurrence of the identifier under the cursor, with the code-wise definition of identifier (scope and all).
 
 Fortunately, Neovim implements LSP (language server protocol) and supports document highlighting. The missing link is automatically calling document
-highlighting for the identifier under cursor, and then allowing going to next/prev LSP highlight.
+highlighting for the identifier under cursor, and then supporting jump to next/prev LSP highlight.
 
 ## Installation
 * First, configuring your LSP is required (as LSP is used for the highlighting groups). This can be done using [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig).
