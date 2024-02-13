@@ -9,7 +9,7 @@ local function performJump(highlightData)
 end
 
 local function isLsp(highlightData)
-	return v[4].hl_group == "LspReferenceText" or v[4].hl_group == "LspReferenceRead" or v[4].hl_group == "LspReferenceWrite"
+	return highlightData[4].hl_group == "LspReferenceText" or highlightData[4].hl_group == "LspReferenceRead" or highlightData[4].hl_group == "LspReferenceWrite"
 end
 
 -- Go to the next occurrence of the highlighted identifier
