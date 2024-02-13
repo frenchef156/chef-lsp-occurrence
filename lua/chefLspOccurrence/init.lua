@@ -5,7 +5,6 @@ ChefLspOccurrence.didJump = false
 local function performJump(highlightData)
 	ChefLspOccurrence.didJump = true
 	vim.api.nvim_win_set_cursor(0, {highlightData[2] + 1, highlightData[3] + 1}) --lsp index is zero based, vim is 1 based
-	foundNext = true
 end
 
 local function isLsp(highlightData)
@@ -19,6 +18,7 @@ function ChefLspOccurrence.next()
 	for i,v in ipairs(highlights) do
 		if isLsp(v) and v[2] + 1 > vim.api.nvim_win_get_cursor(0)[1] then -- V[2] is the line number
 			performJump(v)
+			foundNext = true
 			break
 		end
 	end
@@ -40,6 +40,7 @@ function ChefLspOccurrence.prev()
 	for i=#highlights,1,-1 do
 		if isLsp(highlights[i]) and highlights[i][2] + 1 < vim.api.nvim_win_get_cursor(0)[1] then -- V[2] is the line number
 			performJump(highlights[i])
+			foundPrev = true
 			break
 		end
 	end
