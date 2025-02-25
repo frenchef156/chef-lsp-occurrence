@@ -4,7 +4,8 @@ ChefLspOccurrence.didJump = false
 
 local function performJump(highlightData)
 	ChefLspOccurrence.didJump = true
-	vim.api.nvim_win_set_cursor(0, {highlightData[2] + 1, highlightData[3] + 1}) --lsp index is zero based, vim is 1 based
+	vim.cmd("normal! m'") -- Set the jump mark in order to be able to jump back
+	vim.api.nvim_win_set_cursor(0, {highlightData[2] + 1, highlightData[3]}) -- lsp index is zero based, vim is 1 based
 end
 
 local function isLsp(highlightData)
