@@ -73,17 +73,20 @@ function ChefLspOccurrence.setup()
 			if client.server_capabilities.documentHighlightProvider then
 				vim.api.nvim_create_autocmd('CursorHold', {
 					group = chefLspGroup,
-					callback = onCursorHold
+					callback = onCursorHold,
+					buffer = ev.buf
 				})
 				vim.api.nvim_create_autocmd('CursorHoldI', {
 					group = chefLspGroup,
-					callback = onCursorHold
+					callback = onCursorHold,
+					buffer = ev.buf
 				})
 				-- vim.api.nvim_create_autocmd('CursorMoved', {
 				-- 	group = chefLspGroup,
 				-- 	callback = function(ev)
 				-- 		vim.lsp.buf.clear_references()
-				-- 	end
+				-- 	end,
+				-- 	buffer = ev.buf
 				-- })
 			end
 		end,
